@@ -8,13 +8,13 @@ version: '3'
 
 services:
   lychee_db:
-    container_name: lychee_db
+    container_name: lychee_db1
     image: mariadb:10
     environment:
-      - MYSQL_ROOT_PASSWORD=<ROOT_PASSWORD>
+      - MYSQL_ROOT_PASSWORD=123
       - MYSQL_DATABASE=lychee
       - MYSQL_USER=lychee
-      - MYSQL_PASSWORD=<LYCHEE_PASSWORD>
+      - MYSQL_PASSWORD=123
     expose: 
       - 3306
     volumes:
@@ -24,8 +24,8 @@ services:
     restart: unless-stopped
 
   lychee:
-    image: lycheeorg/lychee
-    container_name: lychee
+    image: lychee
+    container_name: lychee1
     ports:
       - 90:80
     volumes:
@@ -51,7 +51,7 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=lychee
       - DB_USERNAME=lychee
-      - DB_PASSWORD=<LYCHEE_PASSWORD>
+      - DB_PASSWORD=123
       #- DB_DROP_CLEAR_TABLES_ON_ROLLBACK=false
       #- DB_OLD_LYCHEE_PREFIX=''
       #- BROADCAST_DRIVER=log
