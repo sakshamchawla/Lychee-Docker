@@ -68,12 +68,11 @@ RUN \
     rm -r storage/framework/cache/data/* 2> /dev/null || true && \
     rm    storage/framework/sessions/* 2> /dev/null || true && \
     rm    storage/framework/views/* 2> /dev/null || true && \
-    rm    storage/logs/* 2> /dev/null || true && \
-    chown -R www-data:www-data /var/www/html/Lychee && \
-    chown -R www-data:www-data /var/www/html/Lychee/storage/clockwork && \
+    rm    storage/logs/* 2> /dev/null || true && \    
     echo "* * * * * www-data cd /var/www/html/Lychee && php artisan schedule:run >> /dev/null 2>&1" >> /etc/crontab && \
     apt-get purge -y --autoremove git composer && \
     apt-get clean -qy &&\
+    chown -R www-data:www-data /var/www/html/Lychee/storage && \
     rm -rf /var/lib/apt/lists/*
 
 # Add custom Nginx configuration
